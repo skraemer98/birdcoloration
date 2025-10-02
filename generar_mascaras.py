@@ -3,6 +3,18 @@ import numpy as np
 import cv2
 
 
+#    Genera máscaras rellenando la región delimitada por las coordenadas.
+#
+#    Parámetros:
+#        imagenes_dir (str): carpeta con las imágenes originales
+#        coords_dirs (dict): carpeta con las coordenadas para las mascaras en cada imagen
+#        output_dir (str): carpeta donde guardar las máscaras
+
+# El codigo recorre la carpeta de coordenadas (si no tiene coordenadas asignadas la imagen, no genera la mascara). 
+# Se emparejan las coordenadas con la imagen correspondiente. Obtenemos dimensiones de la imagen para crear la mascara del mismo tamaño. 
+# Se genera la mascara poniendo unos en el centro de la region y ceros por fuera
+
+
 def generar_mascaras(imagenes_dir, coords_dir, output_dir="mascaras"):
 
     os.makedirs(output_dir, exist_ok=True)
